@@ -1,18 +1,34 @@
 import React from "react"
 import { AiOutlineHome, AiOutlineSearch, AiOutlinePlus, AiOutlineUser } from "react-icons/ai"
 import { FaRegComment } from "react-icons/fa"
+import { useRouter } from "next/router"
 
 const Footer = () => {
+
+  const router = useRouter()
+
   return (
-    <div className={`fixed bottom-0 left-0 w-screen h-12 flex justify-around items-center border-t-black`}>
-      <div className={`h-8 flex items-center`}>
+    <div className={`bg-white border rounded-t-md fixed bottom-0 left-0 w-screen h-16 flex justify-around items-center border-gray-300`}>
+      <div
+        onClick={async () => {
+          await router.push("/home")
+        }}
+        className={`h-8 flex items-center`}>
         <AiOutlineHome className={`h-5 w-5 font-bold scale-125`} />
       </div>
-      <div className={`h-8 flex items-center`}>
+      <div
+        onClick={async () => {
+          await router.push("/search")
+        }}
+        className={`h-8 flex items-center`}>
         <AiOutlineSearch className={`h-5 w-5 font-bold scale-125`} />
       </div>
-      <div className={`h-8  bg-green-300 w-20 rounded-full text-center grid place-items-center scale-125`}>
-        <AiOutlinePlus className={`h-5 w-5 font-bold scale-125`} />
+      <div
+        onClick={async () => {
+          await router.push("/add")
+        }}
+        className={`h-8  bg-gradient-to-b from-green-300 to-blue-400 w-20 rounded-full text-center grid place-items-center scale-125`}>
+        <AiOutlinePlus className={`h-5 w-5 font-bold scale-125 text-white`} />
       </div>
       <div className={`h-8 flex items-center`}>
         <FaRegComment className={`h-5 w-5 font-bold scale-125`} />

@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import React, { useState } from "react"
 import { locationStore } from "../../store/mobx/storeInitializer"
 
-const Add = () => {
+const Home = () => {
   const [file, setFile] = useState()
   const [address, setAddress] = useState("")
   const [description, setDescription] = useState("")
@@ -88,7 +88,7 @@ const Add = () => {
             }}
             value={address}
             className="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
-            placeholder="Add Location Address"
+            placeholder="Home Location Address"
           />
         </div>
         <div>
@@ -99,7 +99,7 @@ const Add = () => {
               }}
               value={description}
               rows={4}
-              placeholder="Add Description"
+              placeholder="Home Description"
               name="comment"
               id="comment"
               className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
@@ -121,7 +121,7 @@ const Add = () => {
             type="submit"
             className="inline-flex w-full justify-center items-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
           >
-            Add
+            Home
           </button>
         </div>
       </form>

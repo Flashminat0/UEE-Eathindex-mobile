@@ -11,7 +11,10 @@ function MyApp({ Component, pageProps }) {
   return <>
     <ToastContainer position={'bottom-center'} />
     <Provider store={store}>
-      <Header />
+      {/*<Header />*/}
+      <div className={`bg-white h-12`}>
+
+      </div>
       <Component {...pageProps} />
       <Footer />
     </Provider>
