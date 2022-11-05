@@ -10,6 +10,7 @@ const Edit = () => {
   const [newFile, setNewFile] = useState()
   const [address, setAddress] = useState("")
   const [description, setDescription] = useState("")
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     if (router) {
@@ -58,55 +59,69 @@ const Edit = () => {
     <div>
       {location && (
         <div className="p-3 space-y-5 bg-gray-100 rounded-lg">
-          <section className="rounded-lg overflow-hidden">
-            <img src={getImage(file)} />
-          </section>
           <form
             className="px-2 space-y-3 w-full flex flex-col"
             onSubmit={submitHandler}
           >
             <div className="mt-1 sm:col-span-2 sm:mt-0">
-              <div className="flex max-w-lg justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
-                <div className="space-y-1 text-center">
-                  <div className="flex text-sm text-gray-600 flex-col">
-                    <label
-                      htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md bg-white font-medium text-green-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:text-green-500"
-                    >
-                      <span>Upload your images</span>
-                      <input
-                        id="file-upload"
-                        name="file-upload"
-                        type="file"
-                        className="sr-only"
-                        onChange={setFiles}
-                      />
-                    </label>
-                    <p className="text-xs text-gray-500">
-                      PNG, JPG, GIF files are allowed
-                    </p>
+              {toggle ? (
+                <div className="mt-1 sm:col-span-2 sm:mt-0">
+                  <div className="flex max-w-lg justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+                    <div className="space-y-1 text-center">
+                      <div className="flex text-sm text-gray-600 flex-col">
+                        <label
+                          htmlFor="file-upload"
+                          className="relative cursor-pointer rounded-md bg-white font-medium text-green-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:text-green-500"
+                        >
+                          <span>Upload your images</span>
+                          <input
+                            id="file-upload"
+                            name="file-upload"
+                            type="file"
+                            className="sr-only"
+                            onChange={setFiles}
+                          />
+                        </label>
+                        <p className="text-xs text-gray-500">
+                          PNG, JPG, GIF files are allowed
+                        </p>
+                      </div>
+                      <svg
+                        className="mx-auto h-12 w-12 text-gray-400"
+                        stroke="currentColor"
+                        fill="none"
+                        viewBox="0 0 48 48"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                          strokeWidth={2}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <p
+                        className="text-xs text-gray-500"
+                        onClick={() => {
+                          setToggle(!toggle)
+                        }}
+                      >
+                        Browse to choose a file
+                      </p>
+                    </div>
                   </div>
-                  <svg
-                    className="mx-auto h-12 w-12 text-gray-400"
-                    stroke="currentColor"
-                    fill="none"
-                    viewBox="0 0 48 48"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                  <p className="text-xs text-gray-500">
-                    Browse to choose a file
-                  </p>
                 </div>
-              </div>
+              ) : (
+                <section
+                  className="w-full"
+                  onClick={() => {
+                    setToggle(!toggle)
+                  }}
+                >
+                  <img src={getImage(file)} className="w-full" />
+                </section>
+              )}
             </div>
-            <div></div>
             <div className="rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:border-green-600 focus-within:ring-1 focus-within:ring-green-600">
               <input
                 type="text"

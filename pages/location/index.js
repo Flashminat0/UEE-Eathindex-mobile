@@ -54,12 +54,12 @@ const Index = () => {
             key={location.id}
           >
             <section
-              className="rounded-lg overflow-hidden"
+              className="rounded-lg overflow-hidden flex justify-center w-full"
               onClick={() => {
                 selectOne(location.id)
               }}
             >
-              <img src={getImage(location.image)} />
+              <img src={getImage(location.image)} className='w-full'/>
             </section>
             <section className="flex justify-between py-2">
               <div>{location.address}</div>
