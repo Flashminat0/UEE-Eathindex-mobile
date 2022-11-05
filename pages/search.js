@@ -2,12 +2,13 @@ import React from "react"
 import { HiSearch } from "react-icons/hi"
 
 const images = [
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbIHw3oUEi2EAMDD6AHDe2j37Y2JuEozh6tg&usqp=CAU",
-  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/plant-guide-office-plants-1663799307.jpg",
-  "https://secure.img1-cg.wfcdn.com/im/72551637/resize-h600-w600%5Ecompr-r85/1093/109315834/Live+Plants.jpg",
-  "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/ab/43d910ae7d11e88e82d728f9399c9e/plant_Profile_logo.jpg?auto=format%2Ccompress&dpr=1",
-  "https://www.bhg.com/thmb/RRBd35mDZYsjOFpOcgRpY1Jvj-U=/1280x1408/filters:fill(auto,1)/dieffenbachia-houseplant-de43c42e-a1187ad0c7e0462a8f44c11ffc1fb046.jpg",
-  "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-top-5-air-purifier-and-oxygen-enriching-plant-pack-16969387507852_512x512.jpg?v=1634230232"
+  // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbIHw3oUEi2EAMDD6AHDe2j37Y2JuEozh6tg&usqp=CAU",
+  // "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/plant-guide-office-plants-1663799307.jpg",
+  // "https://secure.img1-cg.wfcdn.com/im/72551637/resize-h600-w600%5Ecompr-r85/1093/109315834/Live+Plants.jpg",
+  // "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/ab/43d910ae7d11e88e82d728f9399c9e/plant_Profile_logo.jpg?auto=format%2Ccompress&dpr=1",
+  // "https://www.bhg.com/thmb/RRBd35mDZYsjOFpOcgRpY1Jvj-U=/1280x1408/filters:fill(auto,1)/dieffenbachia-houseplant-de43c42e-a1187ad0c7e0462a8f44c11ffc1fb046.jpg",
+  // "https://cdn.shopify.com/s/files/1/0047/9730/0847/products/nurserylive-combo-packs-plants-top-5-air-purifier-and-oxygen-enriching-plant-pack-16969387507852_512x512.jpg?v=1634230232"
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/1200px-Lion_waiting_in_Namibia.jpg",
 ]
 
 const Search = () => {

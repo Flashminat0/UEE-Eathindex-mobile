@@ -129,4 +129,4 @@ const Home = () => {
   )
 }
 
-export default Add
+export default Edit
