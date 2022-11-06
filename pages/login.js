@@ -71,23 +71,7 @@ const Index = () => {
       <div className="px-4 pt-16 pb-36 sm:px-6 lg:col-start-1 lg:row-start-1 lg:px-0 lg:pb-16">
         <div className="mx-auto max-w-lg lg:max-w-none">
           <form className="space-y-6" onSubmit={authUser}>
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                Full Name
-              </label>
-              <div className="mt-1">
-                <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-                />
-              </div>
-            </div>
+
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
@@ -107,23 +91,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                District
-              </label>
-              <div className="mt-1">
-                <input
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-                />
-              </div>
-            </div>
+
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
@@ -143,23 +111,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Re-enter Password
-              </label>
-              <div className="mt-1">
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm"
-                />
-              </div>
-            </div>
+
             <div className={`grid grid-cols-2 gap-4`}>
               <button
                 type="submit"
@@ -171,7 +123,7 @@ const Index = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
               >
-                SIGN UP
+                LOG IN
               </button>
             </div>
           </form>

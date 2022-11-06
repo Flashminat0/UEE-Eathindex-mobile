@@ -1,5 +1,5 @@
 import React from "react"
-import { AiOutlineHome, AiOutlineSearch, AiOutlinePlus, AiOutlineUser } from "react-icons/ai"
+import { AiOutlineHome, AiOutlineSearch, AiOutlinePlus, AiOutlineUser , AiOutlineLike } from "react-icons/ai"
 import { FaRegComment } from "react-icons/fa"
 import { useRouter } from "next/router"
 
@@ -31,7 +31,7 @@ const Footer = () => {
         <AiOutlinePlus className={`h-5 w-5 font-bold scale-125 text-white`} />
       </div>
       <div className={`h-8 flex items-center`}>
-        <FaRegComment className={`h-5 w-5 font-bold scale-125`} />
+        <AiOutlineLike className={`h-5 w-5 font-bold scale-125`} />
       </div>
       <div className={`h-8 flex items-center`}>
         <AiOutlineUser className={`h-5 w-5 font-bold scale-125`} />

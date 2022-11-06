@@ -7,10 +7,18 @@ const Home = () => {
 
   return (
     <div className={`grid grid-rows-5 h-full `}>
-      <div className={`row-span-2`}>
+      <div className={`row-span-2 relative`}>
         <img
           className={`w-full h-full object-cover`}
           src="/img/add-banner.jpg" alt="" />
+        <div
+          className={`absolute bottom-0 w-max text-center bg-white mx-10`}>
+          <p className={`mx-20 text-4xl font-semibold`}>ADD
+            <br/>
+            CONTENT</p>
+        </div>
+
+
       </div>
       <div className={` bg-white grid grid-cols-12 p-4 border border-gray-300 m-4`}>
         <div className={`col-span-4 `}>
