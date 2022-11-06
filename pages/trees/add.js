@@ -1,12 +1,15 @@
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import { BiUpload } from "react-icons/bi"
-import { locationStore, treeStore } from "../../store/mobx/storeInitializer"
+import { treeStore } from "../../store/mobx/storeInitializer"
 
 const Add = () => {
   const [file, setFile] = useState()
-  const [address, setAddress] = useState("")
+  const [name, setName] = useState("")
+  const [sciName, setSciName] = useState("")
   const [description, setDescription] = useState("")
+  const [tag, setTag] = useState()
+  const [Tags, setTags] = useState([])
   const [image, setImage] = useState()
 
   const router = useRouter()
@@ -22,17 +25,23 @@ const Add = () => {
   }
   const submitHandler = (event) => {
     event.preventDefault()
-    const id = locationStore.locations.length + 1
+    const id = treeStore.trees.length + 1
     const location = {
       id: id,
-      address: address,
-      description: description,
-      like: 0,
+      name: name,
+      sciName: sciName,
       image: file,
+      tags: Tags,
+      description: description,
     }
-    locationStore.addLocation(location)
-    router.push("/location")
+    treeStore.addTree(location)
+    router.push("/trees")
   }
+
+  const addTags = (tag) => {
+    setTags((prev) => [...prev, tag])
+  }
+
   useEffect(() => {
     if (file) {
       if (file && file[0]) {
@@ -43,14 +52,14 @@ const Add = () => {
   }, [file])
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="pb-20">
       <form
         className="px-2 space-y-3 w-full flex flex-col"
         onSubmit={submitHandler}
       >
         <div className="mt-1 sm:col-span-2 sm:mt-0">
           {image ? (
-            <img src={image} className="w-full" />
+            <img src={image} className='w-full'/>
           ) : (
             <div className="flex max-w-lg justify-center rounded-md bg-gray-200 pt-5 pb-6">
               <div className="space-y-1 text-center w-full">
@@ -90,12 +99,65 @@ const Add = () => {
             name="name"
             id="name"
             onChange={(e) => {
-              setAddress(e.target.value)
+              setName(e.target.value)
             }}
-            value={address}
+            value={name}
             className="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
-            placeholder="Home Location Address"
+            placeholder="Add Tree Name"
           />
+        </div>
+        <div className="rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:border-green-600 focus-within:ring-1 focus-within:ring-green-600">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={(e) => {
+              setSciName(e.target.value)
+            }}
+            value={sciName}
+            className="block w-full border-0 p-0 text-gray-900 placeholder-gray-500 focus:ring-0 sm:text-sm"
+            placeholder="Add Scientific Name"
+          />
+        </div>
+        <div className="grid grid-cols-3 w-full gap-5 px-2">
+          {Tags.map((tag) => (
+            <div className="h-8 bg-gradient-to-b from-green-300 to-blue-400 w-20 rounded-full text-center grid place-items-center scale-125">
+              {tag}
+            </div>
+          ))}
+        </div>
+        <div>
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Add Tags
+          </label>
+          <div className="mt-1 flex rounded-md shadow-sm">
+            <div className="relative flex flex-grow items-stretch focus-within:z-10">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                onChange={(e) => {
+                  setTag(e.target.value)
+                }}
+                value={tag}
+                className="block w-full rounded-none rounded-l-md border-gray-300 pl-10 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                placeholder="Insert Tag"
+              />
+            </div>
+            <button
+              onClick={() => {
+                addTags(tag)
+                setTag("")
+              }}
+              type="button"
+              className="relative -ml-px inline-flex items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+              <span>Add</span>
+            </button>
+          </div>
         </div>
         <div>
           <div className="mt-1">
@@ -105,7 +167,7 @@ const Add = () => {
               }}
               value={description}
               rows={4}
-              placeholder="Home Description"
+              placeholder="Add Description"
               name="comment"
               id="comment"
               className="block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm"
@@ -116,7 +178,7 @@ const Add = () => {
         <div className="flex space-x-5">
           <button
             onClick={() => {
-              router.push("/location")
+              router.push("/trees")
             }}
             type="button"
             className="inline-flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
