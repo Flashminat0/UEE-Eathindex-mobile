@@ -67,7 +67,7 @@ const Index = () => {
                 <div
                   className={`${
                     isLiked(location.id)
-                      ? "bg-red-100 text-red-500"
+                      ? "bg-red-100 text-red-600"
                       : "text-base"
                   }`}
                   onClick={() => {

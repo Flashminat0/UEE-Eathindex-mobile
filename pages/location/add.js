@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import React, { useEffect, useState } from "react"
 import { BiUpload } from "react-icons/bi"
-import { locationStore, treeStore } from "../../store/mobx/storeInitializer"
+import { locationStore } from "../../store/mobx/storeInitializer"
 
 const Add = () => {
   const [file, setFile] = useState()
@@ -33,6 +33,7 @@ const Add = () => {
     locationStore.addLocation(location)
     router.push("/location")
   }
+
   useEffect(() => {
     if (file) {
       if (file && file[0]) {
@@ -59,7 +60,7 @@ const Add = () => {
                     htmlFor="file-upload"
                     className="relative cursor-pointer rounded-md font-medium focus-within:outline-none focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:text-green-500"
                   >
-                    <span>Upload your images</span>
+                    <span>Upload your location Image</span>
                     <input
                       id="file-upload"
                       name="file-upload"
